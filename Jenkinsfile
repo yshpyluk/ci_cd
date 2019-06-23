@@ -11,10 +11,11 @@ pipeline {
         echo 'Start Pipeline'
       }
     }
-    stage('Run App') {
+    stage('Git Checkout') {
       steps {
         sh '''#!/bin/bash
 docker-compose up -d;'''
+        git(url: 'https://github.com/pavlobornia/training-ci', branch: 'master', credentialsId: 'aebb2aad-802d-40b3-96c4-493dae147640', poll: true)
       }
     }
   }
