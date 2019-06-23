@@ -18,8 +18,11 @@ pipeline {
     }
     stage('Run Tests') {
       steps {
-        sh '''#!/bin/bash
+        dir(path: 'flask-app') {
+          sh '''#!/bin/bash
 docker-compose run flask-app pytest -v'''
+        }
+
       }
     }
   }
