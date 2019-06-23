@@ -1,0 +1,36 @@
+version: '3'
+services:
+
+  flask-app:
+    build: app/.
+    ports:
+      - "5000:80"
+    depends_on:
+      - flask-db
+    environment:
+      MYSQL_ROOT_PASSWORD: "supersecure"
+      DB_NAME: "flask-db"
+      REDIS_NAME: 'redis-db'
+    networks:
+      - app-network
+
+  flask-db:
+    build: db/.
+    volumes:
+      - ./db-data:/var/lib/mysql
+    environment:
+       MYSQL_ROOT_PASSWORD: supersecure
+    networks:
+      - app-network
+
+  redis-db:
+    image: redis:latest
+    networks:
+      - app-network
+
+volumes:
+   db-data:
+
+networks:
+    app-network:
+        driver: bridge
