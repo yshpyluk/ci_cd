@@ -21,8 +21,8 @@ pipeline {
         dir(path: 'flask-app') {
           sh '''#!/bin/bash
 docker-compose down
-#docker-compose up -d
-docker-compose run flask-app pytest -v
+docker-compose up -d
+docker-compose exec flask-app pytest -v
 docker-compose down
 #docker-compose rm -sf
 '''
