@@ -30,5 +30,16 @@ docker-compose down
 
       }
     }
+    stage('Run App') {
+      steps {
+        dir(path: 'flask-app') {
+          sh '''#!/bin/bash
+docker-compose up -d
+
+'''
+        }
+
+      }
+    }
   }
 }
