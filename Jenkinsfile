@@ -20,20 +20,10 @@ pipeline {
       steps {
         dir(path: 'flask-app') {
           sh '''#!/bin/bash
-docker-compose run flask-app pytest -v
-docker-compose rm -sf'''
-        }
-
-      }
-    }
-    stage('Deploy App') {
-      steps {
-        waitUntil() {
-          dir(path: 'flask-app') {
-            sh '''#!/bin/bash
-/usr/local/bin/docker-compose up -d'''
-          }
-
+docker-compose up -d
+#docker-compose run flask-app pytest -v
+#docker-compose rm -sf
+docker-compose up -d'''
         }
 
       }
