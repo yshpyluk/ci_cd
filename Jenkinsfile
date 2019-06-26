@@ -30,6 +30,7 @@ docker-compose down
 '''
         }
 
+        junit '/var/jenkins_home/junit-report/report.xml'
       }
     }
     stage('Run App') {
