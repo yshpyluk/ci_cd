@@ -30,7 +30,7 @@ docker-compose run flask-app pytest -v --junit-xml=./junit-report/report.xml
 '''
         }
 
-        junit(testResults: 'junit-report/report.xml', allowEmptyResults: true)
+        junit 'junit-report/report.xml'
       }
     }
     stage('Run App') {
