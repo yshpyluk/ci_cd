@@ -6,7 +6,8 @@ COPY . /var/opt
 WORKDIR /var/opt
 
 # Install dependencies.
-RUN pip install -r requirements.txt
+RUN pip install -r requirements.txt \
+    && mkdir -p /var/opt/junit-report
 
 EXPOSE 80
 CMD python app.py
