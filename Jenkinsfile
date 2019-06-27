@@ -27,7 +27,7 @@ docker-compose build flask-app
 docker-compose run flask-app pytest -v --junit-xml=./junit-report/report.xml
 #docker-compose up -d
 #docker-compose exec -T flask-app pytest -v --junit-xml=./junit-report/report.xml
-#docker-compose down
+docker-compose down
 #docker-compose rm -sf
 '''
             }
@@ -36,15 +36,14 @@ docker-compose run flask-app pytest -v --junit-xml=./junit-report/report.xml
             sh 'sudo rm -rf flask-app/junit-report'
           }
         }
-        stage('Parralle Stage') {
+        stage('Sleep 5') {
           steps {
-            retry(count: 5) {
-              timeout(time: 10) {
-                sh 'sleep $((RANDOM % 20))'
-              }
-
-            }
-
+            sh 'sleep 5'
+          }
+        }
+        stage('Sleep 6') {
+          steps {
+            sleep 6
           }
         }
       }
