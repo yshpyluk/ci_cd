@@ -17,9 +17,11 @@ pipeline {
       }
     }
     stage('Run Unit Tests') {
-      steps {
-        dir(path: 'flask-app') {
-          sh '''#!/bin/bash
+      parallel {
+        stage('Run Unit Tests') {
+          steps {
+            dir(path: 'flask-app') {
+              sh '''#!/bin/bash
 docker-compose down
 docker-compose build flask-app
 docker-compose run flask-app pytest -v --junit-xml=./junit-report/report.xml
@@ -28,10 +30,23 @@ docker-compose run flask-app pytest -v --junit-xml=./junit-report/report.xml
 #docker-compose down
 #docker-compose rm -sf
 '''
-        }
+            }
 
-        junit 'flask-app/junit-report/report.xml'
-        sh 'sudo rm -rf flask-app/junit-report'
+            junit 'flask-app/junit-report/report.xml'
+            sh 'sudo rm -rf flask-app/junit-report'
+          }
+        }
+        stage('Parralle Stage') {
+          steps {
+            retry(count: 5) {
+              timeout(time: 10) {
+                sh 'sleep $((RANDOM % 20))'
+              }
+
+            }
+
+          }
+        }
       }
     }
     stage('Run App') {
