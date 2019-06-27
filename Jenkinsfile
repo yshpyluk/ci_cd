@@ -52,9 +52,8 @@ docker-compose down
       steps {
         dir(path: 'flask-app') {
           sh '''#!/bin/bash
-#docker-compose up -d
 echo "RUN APP"
-'''
+docker-compose up -d --build'''
         }
 
       }
