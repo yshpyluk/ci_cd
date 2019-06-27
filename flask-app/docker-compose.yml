@@ -18,8 +18,6 @@ services:
 
   flask-db:
     build: db/.
-    volumes:
-      - ./db-data:/var/lib/mysql
     environment:
        MYSQL_ROOT_PASSWORD: supersecure
     networks:
@@ -31,7 +29,6 @@ services:
       - app-network
 
 volumes:
-   db-data:
    junit-report:
 
 networks:
