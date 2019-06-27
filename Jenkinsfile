@@ -13,7 +13,7 @@ pipeline {
     }
     stage('Git Checkout') {
       steps {
-        sh 'echo git'
+        git(url: 'https://github.com/pavlobornia/training-ci', credentialsId: 'aebb2aad-802d-40b3-96c4-493dae147640', branch: 'master')
       }
     }
     stage('Run Unit Tests') {
