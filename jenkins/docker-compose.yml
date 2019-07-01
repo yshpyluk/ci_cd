@@ -1,7 +1,8 @@
 version: '3'
 services:
   jenkins:
-    image: 'jenkins/jenkins'
+    build:
+      context: .
     user: 'root'
     ports:
       - '8080:8080'
