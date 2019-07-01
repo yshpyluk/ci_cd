@@ -157,8 +157,12 @@ docker-compose build flask-app
 docker-compose run flask-app pytest -v
 docker-compose down
 ```
+  * Build Job
+
 
 2. Archive JUnit test results
+
+  * Replace `run flask-app` string from previous point
 
   ```
   docker-compose run flask-app pytest -v --junit-xml=/var/opt/junit-report/report.xml
