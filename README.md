@@ -34,8 +34,7 @@ docker exec -it jenkins_jenkins_1 cat /var/jenkins_home/secrets/initialAdminPass
 
   * Generate Jenkins SSH keys
 
-    ```ssh-keygen -t rsa -C "jenkins@lohika.com"
-    ```
+    `ssh-keygen -t rsa -C "jenkins@lohika.com"`
 
   * Jenkins --> Credentials --> System -->
    Global Credentials --> Add Credentials --> SSH Username with private key
@@ -158,8 +157,12 @@ docker-compose down
 
 2. Archive JUnit test results
 
-  * Add Step `Archive JUnit-formatted test results`
-  * Select path `junit-report`
+  ```
+  docker-compose run flask-app pytest -v --junit-xml=/var/opt/junit-report/report.xml
+  ```
 
+  * Add Step `Archive JUnit-formatted test results`
+  * Select path `flask-app/junit-report/report.xml`
+  * Add cleanup Step `sudo rm -rf flask-app/junit-report`
 
 3. If tests passed - deploy new application release
