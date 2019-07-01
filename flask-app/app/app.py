@@ -7,6 +7,8 @@ from redis import Redis, RedisError
 from flask import Markup
 from flask import render_template
 from flask_sqlalchemy import SQLAlchemy
+from sqlalchemy import text
+
 
 log = logging.getLogger('werkzeug')
 
@@ -58,7 +60,7 @@ def hello():
         log.error(r_err)
 
     try:
-        if db.session.query("1").from_statement("SELECT 1").all():
+        if db.session.query("1").from_statement(text("SELECT 1")).all():
             mysql_result = True
         v = Visits.query.filter_by(id=1).first()
         if isinstance(visits, (int, long)):
