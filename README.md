@@ -70,11 +70,14 @@ https://jenkins.io/doc/book/blueocean/getting-started/
 
 ### Setup Jenkins Slave
 
-1. Register Google Cloud Free Tier Account https://console.cloud.google.com
+1. Register Google Cloud Free Tier Account
+https://cloud.google.com/free/
 
 2. Create VM Instance for Jenkins Slave
+https://console.cloud.google.com
 
   * Navigation Menu --> Compute Engine --> VM Instances --> Create Instance
+
 
 3. SSH connect to created instance
 
