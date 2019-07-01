@@ -70,11 +70,14 @@ https://jenkins.io/doc/book/blueocean/getting-started/
 
 ### Setup Jenkins Slave
 
-1. Register Google Cloud Free Tier Account https://console.cloud.google.com
+1. Register Google Cloud Free Tier Account
+https://cloud.google.com/free/
 
 2. Create VM Instance for Jenkins Slave
+https://console.cloud.google.com
 
   * Navigation Menu --> Compute Engine --> VM Instances --> Create Instance
+
 
 3. SSH connect to created instance
 
@@ -154,8 +157,12 @@ docker-compose build flask-app
 docker-compose run flask-app pytest -v
 docker-compose down
 ```
+  * Build Job
+
 
 2. Archive JUnit test results
+
+  * Replace `run flask-app` string from previous point
 
   ```
   docker-compose run flask-app pytest -v --junit-xml=/var/opt/junit-report/report.xml
