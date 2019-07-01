@@ -165,4 +165,7 @@ docker-compose down
   * Select path `flask-app/junit-report/report.xml`
   * Add cleanup Step `sudo rm -rf flask-app/junit-report`
 
+
 3. If tests passed - deploy new application release
+
+4. Check Test Report from Jenkins UI
