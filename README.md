@@ -150,7 +150,7 @@ sudo apt-get install openjdk-8-jre -y
 1. Open BluOcean Pipeline and Add 'Run Tests' stage
 
   * Add Step `Change Current Dir`
-  * Add SubStep
+  * Add Child Step
 
   ```
 docker-compose down
