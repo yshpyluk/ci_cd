@@ -26,6 +26,7 @@ docker exec -it jenkins_jenkins_1 cat /var/jenkins_home/secrets/initialAdminPass
 
 
 4. Install Additional Plugin - BlueOcean
+https://jenkins.io/doc/book/blueocean/
 
   * Manage Jenkins --> Manage Plugins --> Available --> BlueOcean
 
