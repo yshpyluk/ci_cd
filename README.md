@@ -177,3 +177,6 @@ docker-compose down
 3. If tests passed - deploy new application release
 
 4. Check Test Report from Jenkins UI
+
+Go to the next lesson https://github.com/pavlobornia/training-ci/tree/master/lesson2
+ 
