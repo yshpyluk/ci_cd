@@ -11,7 +11,9 @@
 
   * Manage Jenkins --> Configure System --> GitHub Pull Request Builder
   * Credential --> Add --> Secret text --> put GitHub personal token --> Add --> Test Credentials
-
+  ```
+  https://github.com/settings/tokens
+  ```
 
 3. Enable GitHub Pull Request Builder
 
@@ -71,3 +73,5 @@
   `http://b9a0f2dc.ngrok.io/ghprbhook/`
   * select individual events `Issue comments`, `Pull requests`
   * Add Webhook and test it with Pull Request comment or push event
+
+### Create Pipeline Job
