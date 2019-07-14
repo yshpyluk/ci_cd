@@ -5,10 +5,15 @@
 1. Install "GitHub Pull Request Builder" Plugin
 
   * Manage Jenkins --> Manage Plugins --> Available --> GitHub Pull Request Builder
-  * Access to Git Repository !!!!!!!!!!!!!!!!!!
 
 
-2. Enable GitHub Pull Request Builder
+2. Configure plugin access to Git Repository
+
+  * Manage Jenkins --> Configure System --> GitHub Pull Request Builder
+  * Credential --> Add --> Secret text --> put GitHub personal token --> Add --> Test Credentials
+
+
+3. Enable GitHub Pull Request Builder
 
   * Open Freestyle Job created in previous lesson -->
     Configure --> Build Triggers --> set GitHub Pull Request Builder
@@ -21,7 +26,7 @@
   * Build every pull request automatically without asking
   * Whitelist Target Branches --> `master`
 
-3. Test build triggering
+4. Test build triggering
 
   * Create new git branch
   ```
@@ -38,14 +43,25 @@
   * Wait a minute and check Jenkins Job
   * Trigger job from PR comment `build_training` and check in Jenkins UI
 
-4. Install `ngrok` software
+
+5. Install `ngrok` software to expose local Jenkins server to the internet and get public URL
 
   * Download from https://ngrok.com/download
-  * `unzip ngrok-*.zip`
-  * `./ngrok http 8080`
+  * Unzip binary file
+    ```
+    unzip ngrok-*.zip
+    ```
+  * Run command to expose Jenkins via http
+    ```
+    ./ngrok http 8080
+    ```
+  * Get public URL for building Webhooks integration, for example:
+    ```
+    http://53a7def7.ngrok.io
+    ```
 
 
-5. Configure web hooks for triggering Jenkins Job
+6. Configure web hooks for triggering Jenkins Job
 
   *  Open Jenkins Freestyle Job --> Configure --> Build Triggers --> GitHub Pull Request Builder --> set `Use github hooks for build triggering`
 
