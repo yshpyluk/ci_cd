@@ -10,7 +10,7 @@
 2. Configure plugin access to Git Repository
 
   * Manage Jenkins --> Configure System --> GitHub Pull Request Builder
-  * Credential --> Add --> Secret text --> put GitHub personal token --> Add --> Test Credentials
+  * Credential --> Add --> Secret text --> put `GitHub personal token` --> Add --> Test Credentials
   ```
   https://github.com/settings/tokens
   ```
@@ -75,3 +75,11 @@
   * Add Webhook and test it with Pull Request comment or push event
 
 ### Create Pipeline Job
+
+1. New Item --> Enter an item name ex. `Pipeline` --> Ok
+
+  * Use environment variables in Pipeline
+  * Use parallel steps for running Tests
+  * Use Post Condition Action
+  * Use cleanWS option
+  * Send notification if job failed
