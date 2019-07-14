@@ -86,7 +86,7 @@ https://console.cloud.google.com
 gcloud beta compute --project "alpine-scholar-232716" ssh --zone "europe-west1-b" "jenkins-slave-1"
 ```
 
-4. Create Jenkins user
+4. Create Jenkins user (later Jenkins jobs will be running under this user)
 
 ```
 sudo useradd jenkins -U -m -s /bin/bash
