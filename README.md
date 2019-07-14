@@ -145,6 +145,8 @@ sudo apt-get install openjdk-8-jre -y
 
 12. Open BlueOcean Pipeline and change label to 'slave'
 
+13. Run BlueOcean Pipeline and test if application deployed successfully on Jenkins slave
+
 ### Run Application Tests
 
 1. Open BluOcean Pipeline and Add 'Run Tests' stage
