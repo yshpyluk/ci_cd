@@ -80,8 +80,9 @@
 
 1. New Item --> Enter an item name ex. `Pipeline` --> Ok
 
-  * Use environment variables in Pipeline
-  * Use parallel steps for running Tests
+  * Use environment variables in Pipeline for git url and credentialsId
+  * Use parallel stages for running Tests,
+  * Force your parallel stages to all be aborted when one of them fails
   * Use Post Condition Action
-  * Use cleanWS option
-  * Send notification if job failed
+  * Delete workspace when build is done
+  * Send notification if job failed (optional)
