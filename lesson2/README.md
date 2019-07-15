@@ -18,7 +18,9 @@
 3. Enable GitHub Pull Request Builder
 
   * Open Freestyle Job created in previous lesson -->
-    Configure --> Build Triggers --> set GitHub Pull Request Builder
+  Configure --> General --> set `GitHub project Url`
+
+  * Freestyle Job --> Configure --> Build Triggers --> set GitHub Pull Request Builder
 
 
   In opened configuration tab set
@@ -74,7 +76,7 @@
   * select individual events `Issue comments`, `Pull requests`
   * Add Webhook and test it with Pull Request comment or push event
 
-### Create Pipeline Job
+### HomeWork. Create Pipeline Job
 
 1. New Item --> Enter an item name ex. `Pipeline` --> Ok
 
