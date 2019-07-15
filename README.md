@@ -78,7 +78,8 @@ https://cloud.google.com/free/
 https://console.cloud.google.com
 
   * Navigation Menu --> Compute Engine --> VM Instances --> Create Instance
-
+  * Please use any OS type you preferred.
+  For me it works on `Ubuntu 18.04`, machine type - `n1-standard-1 (1 vCPU, 3.75 GB memory)`, Disk Size - `20 GB`
 
 3. SSH connect to created instance
 
