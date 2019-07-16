@@ -10,7 +10,32 @@
       </tokenStore>
     </jenkins.security.ApiTokenProperty>
     <com.cloudbees.plugins.credentials.UserCredentialsProvider_-UserCredentialsProperty plugin="credentials@2.2.0">
-      <domainCredentialsMap class="hudson.util.CopyOnWriteMap$Hash"/>
+      <domainCredentialsMap class="hudson.util.CopyOnWriteMap$Hash">
+        <entry>
+          <com.cloudbees.plugins.credentials.domains.Domain>
+            <specifications/>
+          </com.cloudbees.plugins.credentials.domains.Domain>
+          <java.util.concurrent.CopyOnWriteArrayList/>
+        </entry>
+        <entry>
+          <com.cloudbees.plugins.credentials.domains.Domain>
+            <name>blueocean-github-domain</name>
+            <description>blueocean-github-domain to store credentials by BlueOcean</description>
+            <specifications>
+              <io.jenkins.blueocean.rest.impl.pipeline.credential.BlueOceanDomainSpecification plugin="blueocean-pipeline-scm-api@1.17.0"/>
+            </specifications>
+          </com.cloudbees.plugins.credentials.domains.Domain>
+          <list>
+            <com.cloudbees.plugins.credentials.impl.UsernamePasswordCredentialsImpl>
+              <scope>USER</scope>
+              <id>github</id>
+              <description>GitHub Access Token</description>
+              <username>admin</username>
+              <password>{AQAAABAAAAAwAQsb5th4FzthhSoPswPzSxt7UyQnKxsxMYw1OZJq6X5ryvSFgOLGniz8LEQvQ7HytdYxaBfeSvzDeiWCMy9rXA==}</password>
+            </com.cloudbees.plugins.credentials.impl.UsernamePasswordCredentialsImpl>
+          </list>
+        </entry>
+      </domainCredentialsMap>
     </com.cloudbees.plugins.credentials.UserCredentialsProvider_-UserCredentialsProperty>
     <hudson.plugins.emailext.watching.EmailExtWatchAction_-UserProperty plugin="email-ext@2.66">
       <triggers/>
@@ -44,5 +69,17 @@
     <hudson.tasks.Mailer_-UserProperty plugin="mailer@1.23">
       <emailAddress>yuriy.shpyluk@gmail.com</emailAddress>
     </hudson.tasks.Mailer_-UserProperty>
+    <io.jenkins.blueocean.autofavorite.user.FavoritingUserProperty plugin="blueocean-autofavorite@1.2.4">
+      <autofavoriteEnabled>true</autofavoriteEnabled>
+    </io.jenkins.blueocean.autofavorite.user.FavoritingUserProperty>
+    <hudson.plugins.favorite.user.FavoriteUserProperty plugin="favorite@2.3.2">
+      <data class="concurrent-hash-map"/>
+    </hudson.plugins.favorite.user.FavoriteUserProperty>
+    <jenkins.security.LastGrantedAuthoritiesProperty>
+      <roles>
+        <string>authenticated</string>
+      </roles>
+      <timestamp>1562059632880</timestamp>
+    </jenkins.security.LastGrantedAuthoritiesProperty>
   </properties>
 </user>

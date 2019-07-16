@@ -78,7 +78,8 @@ https://cloud.google.com/free/
 https://console.cloud.google.com
 
   * Navigation Menu --> Compute Engine --> VM Instances --> Create Instance
-
+  * Please use any OS type you preferred.
+  For me it works on `Ubuntu 18.04`, machine type - `n1-standard-1 (1 vCPU, 3.75 GB memory)`, Disk Size - `20 GB`
 
 3. SSH connect to created instance
 
@@ -86,7 +87,7 @@ https://console.cloud.google.com
 gcloud beta compute --project "alpine-scholar-232716" ssh --zone "europe-west1-b" "jenkins-slave-1"
 ```
 
-4. Create Jenkins user
+4. Create Jenkins user (later Jenkins jobs will be running from this user)
 
 ```
 sudo useradd jenkins -U -m -s /bin/bash
@@ -145,12 +146,14 @@ sudo apt-get install openjdk-8-jre -y
 
 12. Open BlueOcean Pipeline and change label to 'slave'
 
+13. Run BlueOcean Pipeline and test if application deployed successfully on Jenkins slave
+
 ### Run Application Tests
 
 1. Open BluOcean Pipeline and Add 'Run Tests' stage
 
   * Add Step `Change Current Dir`
-  * Add SubStep
+  * Add Child Step
 
   ```
 docker-compose down
