@@ -17,14 +17,6 @@ sudo rm -rf flask-app/junit-report'''
         git(url: 'https://github.com/yshpyluk/ci_cd', branch: 'master', credentialsId: 'dea8cf38-2982-452d-b2be-bcd63af9e207')
       }
     }
-    stage('Run app') {
-      steps {
-        dir(path: 'flask-app') {
-          sh 'docker-compose up -d --build'
-        }
-
-      }
-    }
     stage('Run Tests') {
       steps {
         dir(path: 'flask-app') {
