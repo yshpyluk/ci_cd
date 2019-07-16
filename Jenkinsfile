@@ -6,10 +6,10 @@ pipeline {
 
   }
   stages {
-    stage('Echo Text (Prepare)') {
+    stage('Echo Text') {
       steps {
         sh '''echo "Heydee"
-sudo rm -rf flask-app/junit-report'''
+'''
       }
     }
     stage('git checkout') {
