@@ -38,5 +38,10 @@ docker-compose down'''
         sh 'sudo rm -rf flask-app/junit-report'
       }
     }
+    stage('Run app') {
+      steps {
+        sh 'docker-compose up -d --build'
+      }
+    }
   }
 }
