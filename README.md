@@ -95,7 +95,7 @@ sudo useradd jenkins -U -m -s /bin/bash
 5. Add Sudo Privileges to Jenkins user
 
 ```
-Visudo 
+visudo 
 jenkins        ALL=(ALL)       NOPASSWD: ALL
 ```
 
@@ -108,7 +108,7 @@ ssh-keygen -t rsa -C "jenkins@lohika.com"
 7. Add public ssh key to authorized
 
 ```
-su - jenkins
+sudo su - jenkins
 vim .ssh/authorized_keys
 
 chmod 600 .ssh/authorized_keys
@@ -180,3 +180,5 @@ docker-compose down
 3. If tests passed - deploy new application release
 
 4. Check Test Report from Jenkins UI
+
+Go to the next lesson https://github.com/pavlobornia/training-ci/tree/master/lesson2
