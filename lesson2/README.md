@@ -103,4 +103,4 @@
   cleanWs()
   ```
 
-    See details https://jenkins.io/doc/book/pipeline/syntax/
+See details https://jenkins.io/doc/book/pipeline/syntax/
