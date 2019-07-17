@@ -26,7 +26,7 @@
   In opened configuration tab set
 
   * Trigger phrase --> `build_training`
-  * Crontab line --> `H/1 * * * *`
+  * Crontab line --> `H/2 * * * *`
   * Build every pull request automatically without asking
   * Whitelist Target Branches --> `master`
 
