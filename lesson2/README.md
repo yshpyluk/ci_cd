@@ -26,7 +26,7 @@
   In opened configuration tab set
 
   * Trigger phrase --> `build_training`
-  * Crontab line --> `H/1 * * * *`
+  * Crontab line --> `H/2 * * * *`
   * Build every pull request automatically without asking
   * Whitelist Target Branches --> `master`
 
@@ -48,41 +48,59 @@
   * Trigger job from PR comment `build_training` and check in Jenkins UI
 
 
-5. Install `ngrok` software to expose local Jenkins server to the internet and get public URL
-
-  * Download from https://ngrok.com/download
-  * Unzip binary file
-    ```
-    unzip ngrok-*.zip
-    ```
-  * Run command to expose Jenkins via http
-    ```
-    ./ngrok http 8080
-    ```
-  * Get public URL for building Webhooks integration, for example:
-    ```
-    http://53a7def7.ngrok.io
-    ```
-
-
-6. Configure web hooks for triggering Jenkins Job
-
-  *  Open Jenkins Freestyle Job --> Configure --> Build Triggers --> GitHub Pull Request Builder --> set `Use github hooks for build triggering`
-
-  * Open GitHub Repository Settings -->
-  Webhooks --> Add webhook
-  * Set Payload URL, example
-  `http://b9a0f2dc.ngrok.io/ghprbhook/`
-  * select individual events `Issue comments`, `Pull requests`
-  * Add Webhook and test it with Pull Request comment or push event
-
 ### HomeWork. Create Pipeline Job
 
-1. New Item --> Enter an item name ex. `Pipeline` --> Ok
+1. New Item --> Enter an item name ex. `Pipeline` --> Ok.
+
+  You can use and modify Jenkinsfile created with BlueOcean job.
 
   * Use environment variables in Pipeline for git url and credentialsId
-  * Use parallel stages for running Tests,
-  * Force your parallel stages to all be aborted when one of them fails
-  * Use Post Condition Action
+  ```
+  environment {
+        giturl = 'https://github.com/pavlobornia/training-ci'
+        credentials = 'abf15cef-c50d-426c-bd68-01efff095f62'
+    }
+  ```
+  https://jenkins.io/doc/pipeline/tour/environment/
+
+  * Use parallel stages in your pipeline. You can replace running tests step with shell step `echo "Running Tests"`
+  ```
+  stage('Parallel') {
+      parallel {
+        stage('Run Unit Tests') {
+          steps {
+            sh 'flask-app pytest'
+          }
+        }
+        stage('Run Smoke Tests') {
+          steps {
+            echo "Tests 2"
+          }
+        }
+      }
+  }
+  ```
+
+  * Force your parallel stages to all be aborted when one of them fails  
+    ```
+    options { parallelsAlwaysFailFast() }
+    ```
+    ```
+    failFast true
+    ```
+
+  * Use Post Condition Actions for archiving test results
+  ```
+  post {
+      success {
+        junit 'flask-app/junit-report/report.xml'
+      }
+  }
+  ```
   * Delete workspace when build is done
-  * Send notification if job failed (optional)
+  ```
+  sh 'sudo rm -rf flask-app/junit-report'
+  cleanWs()
+  ```
+
+See details https://jenkins.io/doc/book/pipeline/syntax/
