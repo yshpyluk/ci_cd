@@ -3,12 +3,28 @@
   <version>1</version>
   <idToDirectoryNameMap class="concurrent-hash-map">
     <entry>
+      <string>pavlo.bornia</string>
+      <string>pavlobornia_5686761670615930869</string>
+    </entry>
+    <entry>
+      <string>noreply</string>
+      <string>noreply_8974037976988240307</string>
+    </entry>
+    <entry>
+      <string>reader</string>
+      <string>reader_3228835329664536322</string>
+    </entry>
+    <entry>
       <string>yuriy.shpyluk</string>
       <string>yuriyshpyluk_833782690159507678</string>
     </entry>
     <entry>
       <string>admin</string>
       <string>admin_3320894655832980414</string>
+    </entry>
+    <entry>
+      <string>yshpyluk</string>
+      <string>yshpyluk_4240144058988236914</string>
     </entry>
   </idToDirectoryNameMap>
 </hudson.model.UserIdMapper>
